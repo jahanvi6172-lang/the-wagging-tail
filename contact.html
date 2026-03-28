@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us – The Wagging Tail</title>
+</head>
+<style>
+/* ── RESET ── */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ── COLOURS & FONT ── */
+:root {
+  --orange: #e85d04;
+  --orange-dark: #bf4b00;
+  --teal: #2a9d8f;
+  --cream: #fdf8f3;
+  --white: #ffffff;
+  --text: #1a1a1a;
+  --grey: #6b6b6b;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--cream);
+  color: var(--text);
+}
+
+/* ── TOP NAV ── */
+:root{
+    --primary-color:#e85d04;
+    --secondary-color:#ff6a00;
+    font-size:16px;
+}
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color:rgba(245,241,236,0.7);
+    backdrop-filter: blur(10px);
+    z-index: 1;
+    height: 80px;
+    border-bottom: 1px solid rgb(245, 243, 243);
+}
+::selection{
+    color: var(--primary-color);
+}
+.logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    opacity: 1;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+nav ul li a{
+    color: black;
+    text-decoration: none;
+}
+nav ul li a:hover{
+    color: var(--primary-color);
+}
+nav ul li {
+    cursor: pointer;
+    color: #333;
+    font-size: 0.94rem;
+    opacity: 1;
+}
+nav ul li a{
+    color: black;
+    text-decoration: none;
+}
+nav ul li a:hover{
+    color: var(--primary-color);
+}
+#menu-toggle {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+.nav{
+    display: flex;
+}
+/* MOBILE */
+@media (max-width: 768px) {
+
+    .hamburger {
+        display: block;
+    }
+
+    .nav {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: white;
+        display: none;
+        flex-direction: column;
+    }
+
+    .nav ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .nav ul li {
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+        text-align: center;
+    }
+
+    #menu-toggle:checked ~ .nav {
+        display: flex;
+    }
+}
+
+/* ── HERO BANNER ── */
+.hero-banner {
+  margin-top: 70px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 500px;
+}
+
+.hero-left-panel {
+  background: var(--orange);
+  padding: 70px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  height: 80%;
+}
+
+.hero-small-tag {
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 30px;
+  padding: 5px 16px;
+  font-size: 0.75rem;
+  color: #fff;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  width: fit-content;
+}
+
+.hero-heading {
+  font-size: 3rem;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
+
+.hero-heading span {
+  font-style: italic;
+  opacity: 0.85;
+}
+
+.hero-line {
+  width: 48px;
+  height: 3px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 2px;
+  margin-bottom: 18px;
+}
+
+.hero-text {
+  color: rgba(255,255,255,0.88);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 360px;
+}
+
+.big-paw {
+  position: absolute;
+  bottom: 120px; right: -10px;
+  font-size: 200px;
+  opacity: 0.07;
+  pointer-events: none;
+}
+
+.hero-right-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-right-panel img {
+  width: 100%; height: 80%;
+  object-fit: cover;
+  display: block;
+}
+
+
+
+
+@media (max-width: 768px) {
+  .hero-banner { grid-template-columns: 1fr; }
+  .hero-left-panel { padding: 50px 28px; }
+  .hero-heading { font-size: 2.2rem; }
+  .hero-right-panel { height: 250px; }
+}
+
+/* ── CONTACT INFO SECTION ── */
+.contact-info-section {
+  background: var(--white);
+  padding: 80px 60px;
+}
+
+.contact-info-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.small-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--orange);
+  margin-bottom: 10px;
+}
+
+.section-heading {
+  font-size: 2.4rem;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.section-text {
+  font-size: 0.92rem;
+  color: var(--grey);
+  line-height: 1.7;
+}
+
+.side-photo {
+  margin-top: 28px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  height: 240px;
+}
+
+.side-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+.photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(213, 91, 15, 0.65) 0%, transparent 55%);
+  display: flex;
+  align-items: flex-end;
+  padding: 18px;
+}
+
+.photo-overlay span { color: #fff; font-size: 0.85rem; }
+
+/* Info cards grid */
+.info-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.info-card {
+  border-radius: 16px;
+  padding: 26px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.25s;
+}
+
+.info-card:hover { transform: translateY(-4px); }
+
+.orange-card { background: #fff5ef; border: 1.5px solid #f7d4bd; }
+.teal-card   { background: #d4eeec; border: 1.5px solid #b0ddd8; }
+
+.card-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-icon svg { width: 22px; height: 22px; }
+
+.orange-icon { background: rgba(232,93,4,0.12); color: var(--orange); }
+.teal-icon   { background: rgba(42,157,143,0.15); color: var(--teal); }
+
+.info-card h3 {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--grey);
+}
+
+.info-card p {
+  font-size: 0.92rem;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .contact-info-section { padding: 60px 28px; }
+  .contact-info-wrapper { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 500px) {
+  .info-cards-grid { grid-template-columns: 1fr; }
+}
+
+/* ── MESSAGE SECTION ── */
+.message-section {
+  background: var(--cream);
+  padding: 80px 60px;
+}
+
+.message-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.message-photo {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 500px;
+}
+
+.message-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+.quote-box {
+  position: absolute;
+  top: 24px; left: 24px;
+  background: var(--white);
+  border-radius: 14px;
+  padding: 18px 20px;
+  max-width: 220px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+}
+
+.quote-emoji { font-size: 1.6rem; margin-bottom: 6px; }
+.quote-box p { font-size: 0.82rem; color: var(--grey); line-height: 1.6; }
+.quote-box strong { display: block; margin-top: 8px; font-size: 0.78rem; color: var(--orange); }
+
+.reply-pill {
+  position: absolute;
+  bottom: 24px; right: 16px;
+  background: var(--orange);
+  color: #fff;
+  border-radius: 30px;
+  padding: 8px 18px;
+  font-size: 0.78rem;
+  font-weight: bold;
+  box-shadow: 0 4px 16px rgba(232,93,4,0.4);
+}
+
+/* Contact form */
+.contact-form {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 38px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-heading {
+  font-size: 1.8rem;
+  color: var(--text);
+}
+
+.form-subtext { font-size: 0.88rem; color: var(--grey); }
+
+/* Topic buttons */
+.topic-row { display: flex; flex-direction: column; gap: 8px; }
+
+.topic-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.topic-btn {
+  padding: 7px 16px;
+  border-radius: 30px;
+  border: 1.5px solid #ddd;
+  background: transparent;
+  font-size: 0.82rem;
+  color: var(--grey);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.topic-btn:hover,
+.topic-btn.chosen {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: #fff;
+}
+
+/* Form fields */
+.two-col-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-label {
+  font-size: 0.78rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text);
+}
+
+.field-group input,
+.field-group textarea {
+  padding: 12px 14px;
+  border: 1.5px solid #e0d8d0;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-family: Arial, sans-serif;
+  background: #faf8f6;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s;
+  resize: none;
+}
+
+.field-group input:focus,
+.field-group textarea:focus {
+  border-color: var(--orange);
+  background: var(--white);
+}
+
+.field-group textarea { height: 130px; }
+
+.has-error { border-color: #e74c3c !important; }
+
+.field-error {
+  font-size: 0.75rem;
+  color: #e74c3c;
+  display: none;
+}
+
+/* Success box */
+.success-notice {
+  background: #eafaf1;
+  border: 1.5px solid #a9dfbf;
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 0.88rem;
+  color: #27ae60;
+  display: none;
+  text-align: center;
+}
+
+/* Submit button */
+.submit-btn {
+  padding: 15px;
+  background: var(--orange);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.submit-btn:hover {
+  background: var(--orange-dark);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+  .message-section { padding: 60px 28px; }
+  .message-wrapper { grid-template-columns: 1fr; }
+  .message-photo { height: 280px; }
+}
+
+@media (max-width: 500px) {
+  .two-col-row { grid-template-columns: 1fr; }
+  .contact-form { padding: 24px 18px; }
+}
+
+/* ── FAQ SECTION ── */
+.faq-section {
+  background: var(--orange);
+  padding: 60px;
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.faq-left { min-width: 240px; }
+
+.faq-left h2 {
+  font-size: 1.7rem;
+  color: #fff;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+
+.faq-left p { font-size: 0.88rem; color: rgba(255,255,255,0.75); }
+
+.faq-list { flex: 1; display: flex; flex-direction: column; gap: 12px; }
+
+.faq-item {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.faq-question:hover { background: rgba(255,255,255,0.08); }
+
+.faq-icon { font-size: 1.2rem; flex-shrink: 0; }
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.7;
+  transition: max-height 0.35s ease, padding 0.3s;
+}
+
+@media (max-width: 768px) {
+  .faq-section { flex-direction: column; padding: 50px 28px; gap: 28px; }
+  .faq-left { min-width: unset; }
+}
+
+/* ── FOOTER ── */
+.site-footer {
+  background: #f5e9dc;
+  padding: 50px 60px 28px;
+}
+
+.footer-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-col { flex: 1 1 180px; }
+
+.footer-col h3 {
+  font-size: 1rem;
+  color: #222;
+  margin-bottom: 14px;
+}
+
+.footer-col p {
+  font-size: 0.86rem;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 6px;
+}
+
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 8px; }
+
+.footer-col ul li a {
+  text-decoration: none;
+  color: #555;
+  font-size: 0.86rem;
+  transition: color 0.2s;
+}
+
+.footer-col ul li a:hover { color: var(--orange); }
+
+.social-row { display: flex; gap: 14px; margin-top: 6px; }
+
+.social-row a svg {
+  width: 22px; height: 22px;
+  fill: #555;
+  transition: fill 0.2s;
+}
+
+.social-row a:hover svg { fill: var(--orange); }
+
+hr { border: none; border-top: 1px solid #ddd; margin: 30px auto; max-width: 1200px; }
+
+.footer-bottom-text {
+  text-align: center;
+  font-size: 0.82rem;
+  color: #888;
+  padding-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+  .site-footer { padding: 40px 24px 20px; }
+  .footer-col { flex: 1 1 100%; }
+}
+</style>
+<body>
+
+  <!-- TOP NAV -->
+   <header class="navbar">
+    <div class="logo">🐾 The Wagging Tail</div>
+    <input type="checkbox" id="menu-toggle">
+
+    <label for="menu-toggle" class="hamburger">☰</label>
+    <nav class="nav">
+        <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about_us.html">About Us</a></li>
+              <li><a href="adopt.html">Adopt</a></li>
+              <li><a href="donate.html">Donate</a></li>
+              <li><a href="volunteer.html">Volunteer</a></li>
+              <li><a href="medical.html">Rescue & medical help</a></li>
+              <li><a href="shelter.html">Shelter</a></li>
+              <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+  <!-- HERO BANNER -->
+  <section class="hero-banner">
+    <div class="hero-left-panel">
+      <span class="hero-small-tag">📬 Reach Out</span>
+      <h1 class="hero-heading">Be a Voice <br><span>for the Voiceless</span></h1>
+      <div class="hero-line"></div>
+      <p class="hero-text">Whether you want to adopt, donate, volunteer, or simply say hello — we're always happy to hear from you.</p>
+      <div class="big-paw">🐾</div>
+    </div>
+    <div class="hero-right-panel">
+      <img src="img/contact.jpeg" alt="Happy dog" />
+      
+    </div>
+  </section>
+
+  <!-- CONTACT INFO -->
+  <section class="contact-info-section">
+    <div class="contact-info-wrapper">
+
+      <!-- Left: heading + photo -->
+      <div class="contact-info-left">
+        <p class="small-label">📍 Our Details</p>
+        <h2 class="section-heading">Get in<br>Touch With Us</h2>
+        <p class="section-text">We're a small but passionate team. We reply to every email and every call matters to us.</p>
+        <div class="side-photo">
+          <img src="https://images.unsplash.com/photo-1544568100-847a948585b9?w=700&q=80" alt="Dog looking up" />
+          <div class="photo-overlay"><span>Your message can change a life 🐾</span></div>
+        </div>
+      </div>
+
+      <!-- Right: 4 info cards -->
+      <div class="info-cards-grid">
+
+        <div class="info-card orange-card">
+          <div class="card-icon orange-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5">
+              <rect x="4" y="10" width="40" height="28" rx="4"/>
+              <polyline points="4,10 24,28 44,10" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Email Us</h3>
+          <p>hello@wagging-tail.org<br>We respond within 24 hours</p>
+        </div>
+
+        <div class="info-card teal-card">
+          <div class="card-icon teal-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5">
+              <rect x="12" y="4" width="24" height="40" rx="4"/>
+              <line x1="12" y1="12" x2="36" y2="12"/>
+              <line x1="12" y1="36" x2="36" y2="36"/>
+              <circle cx="24" cy="41" r="1.5" fill="currentColor"/>
+            </svg>
+          </div>
+          <h3>Call Us</h3>
+          <p>+1 (234) 567-890<br>Mon–Fri, 9 AM – 6 PM</p>
+        </div>
+
+        <div class="info-card orange-card">
+          <div class="card-icon orange-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M24 4C16.268 4 10 10.268 10 18c0 10.5 14 26 14 26s14-15.5 14-26c0-7.732-6.268-14-14-14z"/>
+              <circle cx="24" cy="18" r="4"/>
+            </svg>
+          </div>
+          <h3>Visit Us</h3>
+          <p>123 Wagging Street<br>Dog City, DC 12345</p>
+        </div>
+
+        <div class="info-card teal-card">
+          <div class="card-icon teal-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5">
+              <circle cx="24" cy="24" r="18"/>
+              <polyline points="24,12 24,24 32,30" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Open Hours</h3>
+          <p>Mon–Fri: 9 AM – 6 PM<br>Sat–Sun: 10 AM – 4 PM</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SEND MESSAGE -->
+  <section class="message-section">
+    <div class="message-wrapper">
+
+      <!-- Left: photo with quote -->
+      <div class="message-photo">
+        <img src="https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?w=800&q=80" alt="Dog and owner" />
+        <div class="quote-box">
+          <div class="quote-emoji">💬</div>
+          <p>"Every dog that finds a home starts with a single conversation."</p>
+          <strong>— The Wagging Tail Team</strong>
+        </div>
+        <div class="reply-pill">⚡ We reply in &lt; 24 hrs</div>
+      </div>
+
+      <!-- Right: contact form -->
+      <div class="contact-form">
+        <h2 class="form-heading">Send Us a Message</h2>
+        <p class="form-subtext">Fill in the form and we'll get back to you soon.</p>
+
+        <!-- Topic buttons -->
+        <!-- <div class="topic-row">
+          <label class="field-label">Topic</label>
+          <div class="topic-buttons">
+            <button class="topic-btn chosen" onclick="pickTopic(this)">General</button>
+            <button class="topic-btn" onclick="pickTopic(this)">Adoption</button>
+            <button class="topic-btn" onclick="pickTopic(this)">Donation</button>
+            <button class="topic-btn" onclick="pickTopic(this)">Volunteer</button>
+            <button class="topic-btn" onclick="pickTopic(this)">Medical</button>
+          </div>
+        </div> -->
+
+        <div class="two-col-row">
+          <div class="field-group">
+            <label class="field-label">Full Name *</label>
+            <input type="text" id="full-name" placeholder="Your name" />
+            <span class="field-error" id="name-error">Please enter your name</span>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Email *</label>
+            <input type="email" id="email-address" placeholder="your@email.com" />
+            <span class="field-error" id="email-error">Please enter a valid email</span>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">Subject *</label>
+          <input type="text" id="subject-line" placeholder="What is this about?" />
+          <span class="field-error" id="subject-error">Please enter a subject</span>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">Message *</label>
+          <textarea id="user-message" placeholder="Tell us how we can help..."></textarea>
+          <span class="field-error" id="message-error">Please enter a message</span>
+        </div>
+
+        <div class="success-notice" id="success-notice">
+          ✅ Thank you! Your message has been sent. We'll be in touch soon.
+        </div>
+
+        <button class="submit-btn" onclick="submitForm()">Send Message →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="faq-left">
+      <h2>Frequently Asked Questions</h2>
+      <p>Quick answers to common queries</p>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          How long does the adoption process take? <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">Typically 3–7 days. We do a quick home check and match you with the right dog.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Can I volunteer on weekends only? <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">Absolutely! We have weekend shifts. Sign up via our Volunteer page and pick slots that suit you.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Are donations tax-deductible? <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">Yes. We are a registered 501(c)(3) nonprofit. You'll get a receipt for every donation.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          How can I report a stray dog? <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">Use the Rescue & Medical page or call us directly. We respond to rescue requests within 2 hours.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-columns">
+      <div class="footer-col">
+        <h3>🐾 The Wagging Tail</h3>
+        <p>Rescuing, feeding, treating, and finding homes for stray dogs since 2015.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="adopt.html">Adopt a Dog</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="volunteer.html">Volunteer</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <p>Email: hello@wagging-tail.org</p>
+        <p>Phone: +1 (234) 567-890</p>
+      </div>
+      <div class="footer-col">
+        <h3>Follow Us</h3>
+        <div class="social-row">
+          <a href="https://www.facebook.com" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.12 8.44 9.88v-6.99H8.08v-2.89h2.36V9.41c0-2.33 1.39-3.62 3.52-3.62 1.02 0 2.09.18 2.09.18v2.3h-1.18c-1.17 0-1.53.73-1.53 1.48v1.77h2.61l-.42 2.89h-2.19v6.99C18.34 21.12 22 16.99 22 12z"/></svg>
+          </a>
+          <a href="https://www.instagram.com" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7c-1.65 0-3-1.35-3-3V7c0-1.65 1.35-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-2.75a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z"/></svg>
+          </a>
+          <a href="https://www.twitter.com" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.3 4.3 0 001.88-2.37 8.59 8.59 0 01-2.72 1.04 4.28 4.28 0 00-7.3 3.9A12.14 12.14 0 013 4.79a4.28 4.28 0 001.32 5.71 4.25 4.25 0 01-1.94-.54v.05a4.28 4.28 0 003.44 4.19 4.3 4.3 0 01-1.93.07 4.28 4.28 0 004 2.97A8.6 8.6 0 012 19.54a12.14 12.14 0 006.56 1.92c7.88 0 12.2-6.53 12.2-12.2 0-.19 0-.39-.01-.58A8.72 8.72 0 0022.46 6z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <p class="footer-bottom-text">© 2026 The Wagging Tail. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Pick a topic button
+    // function pickTopic(clicked) {
+    //   document.querySelectorAll('.topic-btn').forEach(btn => btn.classList.remove('chosen'));
+    //   clicked.classList.add('chosen');
+    // }
+
+    // Open/close FAQ
+    function toggleFaq(question) {
+      const answer = question.nextElementSibling;
+      const icon = question.querySelector('.faq-icon');
+      const isOpen = answer.style.maxHeight;
+
+      // Close all first
+      document.querySelectorAll('.faq-answer').forEach(a => a.style.maxHeight = '');
+      document.querySelectorAll('.faq-icon').forEach(i => i.textContent = '+');
+
+      // Open clicked one if it was closed
+      if (!isOpen) {
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        icon.textContent = '×';
+      }
+    }
+
+    // Submit form
+    function submitForm() {
+      let valid = true;
+
+      const name = document.getElementById('full-name');
+      const email = document.getElementById('email-address');
+      const subject = document.getElementById('subject-line');
+      const message = document.getElementById('user-message');
+
+      // Reset errors
+      [name, email, subject, message].forEach(field => {
+        field.classList.remove('has-error');
+      });
+      document.querySelectorAll('.field-error').forEach(e => e.style.display = 'none');
+
+      // Check each field
+      if (name.value.trim() === '') {
+        name.classList.add('has-error');
+        document.getElementById('name-error').style.display = 'block';
+        valid = false;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+        email.classList.add('has-error');
+        document.getElementById('email-error').style.display = 'block';
+        valid = false;
+      }
+      if (subject.value.trim() === '') {
+        subject.classList.add('has-error');
+        document.getElementById('subject-error').style.display = 'block';
+        valid = false;
+      }
+      if (message.value.trim() === '') {
+        message.classList.add('has-error');
+        document.getElementById('message-error').style.display = 'block';
+        valid = false;
+      }
+
+      // Show success
+      if (valid) {
+        document.getElementById('success-notice').style.display = 'block';
+        name.value = '';
+        email.value = '';
+        subject.value = '';
+        message.value = '';
+        setTimeout(() => {
+          document.getElementById('success-notice').style.display = 'none';
+        }, 5000);
+      }
+    }
+  </script>
+
+</body>
+</html>

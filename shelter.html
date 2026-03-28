@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Shelter - The Wagging Tail</title>
+
+</head>
+<style>
+    /* register_shelter.css */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  color: #333;
+}
+
+/* ---- COMMON CLASSES ---- */
+.orange-line {
+  width: 60px;
+  height: 4px;
+  background-color: #e85d04;
+  margin-bottom: 25px;
+}
+.short-line {
+  width: 40px;
+}
+.center-line {
+  margin: 0 auto 25px auto;
+}
+.text-center {
+  text-align: center;
+}
+
+/* ---- NAVBAR ---- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: rgba(245, 241, 236, 0.7);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+  height: 80px;
+  border-bottom: 1px solid rgb(245, 243, 243);
+  box-sizing: border-box;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #e85d04;
+}
+
+.logo svg {
+  color: #e85d04;
+  fill: #e85d04;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  cursor: pointer;
+  font-size: 0.94rem;
+}
+
+nav ul li a {
+  color: black;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  color: #e85d04;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  color: #333;
+}
+
+.nav {
+  display: flex;
+}
+
+/* ---- MOBILE NAVBAR ---- */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: white;
+    display: none;
+    flex-direction: column;
+  }
+
+  .nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .nav ul li {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+  }
+
+  #menu-toggle:checked ~ .nav {
+    display: flex;
+  }
+}
+
+/* ---- 1. HERO SECTION ---- */
+.reg-hero {
+  position: relative;
+  padding: 160px 40px 100px 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.reg-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.reg-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+}
+
+.reg-hero-content {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  gap: 50px;
+  align-items: center;
+  z-index: 1;
+}
+
+.reg-hero-left {
+  flex: 1.2;
+  color: #ffffff;
+}
+
+.reg-hero-left h1 {
+  font-size: 3.8rem;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.hero-desc {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  color: #f0f0f0;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: #e85d04;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 15px 35px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.hero-stats {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.hero-stats strong {
+  color: #fde8d8;
+  font-size: 1.2rem;
+}
+
+.reg-hero-right {
+  flex: 0.8;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.info-card {
+  background-color: #ffffff;
+  padding: 20px 25px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.info-card.border-orange {
+  border-left: 5px solid #e85d04;
+}
+
+.info-card.border-teal {
+  border-left: 5px solid #2a9d8f;
+}
+
+.info-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.info-card p {
+  margin: 0;
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* ---- 2. PROCESS BAND SECTION ---- */
+.process-band {
+  background-color: #f5f1ec;
+  padding: 40px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.band-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.band-text {
+  max-width: 400px;
+}
+
+.band-text h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.6rem;
+}
+
+.band-text p {
+  color: #555;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.band-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.icon-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 90px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #333;
+  transition: border-color 0.2s;
+}
+
+.icon-box:hover {
+  border-color: #e85d04;
+}
+
+.icon-box .svg-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  color: #e85d04;
+}
+
+.icon-box .icon-label {
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+/* ---- 3. ZIGZAG STEPS SECTION ---- */
+.steps-section {
+  padding: 80px 40px;
+  background-color: #ffffff;
+}
+
+.steps-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.step-row {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 100px;
+}
+
+.step-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.step-text {
+  flex: 1;
+  position: relative;
+  padding: 20px 0;
+}
+
+.bg-number {
+  position: absolute;
+  top: -20px;
+  left: -30px;
+  font-size: 12rem;
+  font-weight: bold;
+  color: #fde8d8;
+  z-index: 0;
+  line-height: 1;
+}
+
+.step-row.reverse .bg-number {
+  left: auto;
+  right: -30px;
+}
+
+.step-details {
+  position: relative;
+  z-index: 1;
+}
+
+.step-topic {
+  display: block;
+  color: #e85d04;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.step-details h2 {
+  font-size: 2.5rem;
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+.step-details p {
+  color: #555;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.text-link {
+  color: #e85d04;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
+
+.step-img {
+  flex: 1;
+}
+
+.step-img img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* ---- 4. BENEFITS SECTION ---- */
+.benefits-standalone {
+  background-color: #f5f1ec;
+  padding: 50px 20px; /* reduced spacing */
+  text-align: center;
+}
+
+.benefits-standalone h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.standalone-desc {
+  color: #666;
+  font-size: 1rem;
+  max-width: 500px;
+  margin: 0 auto 25px auto;
+}
+
+/* GRID */
+.benefits-img-grid {
+  max-width: 1000px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px; /* reduced gap */
+}
+
+/* CARD */
+.img-card {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.img-card img {
+  width: 100%;
+  height: 140px; /* slightly smaller */
+  object-fit: cover;
+}
+
+/* CARD BODY */
+.img-card-body {
+  padding: 15px;
+  text-align: center;
+  border-top: 3px solid #2a9d8f;
+}
+
+/* border colors */
+.border-orange {
+  border-top-color: #e85d04;
+}
+
+.border-teal {
+  border-top-color: #2a9d8f;
+}
+
+/* TEXT */
+.img-card-body h4 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.img-card-body p {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
+}
+/* ---- 5. REGISTRATION FORM SECTION ---- */
+.standard-form-section {
+  position: relative;
+  padding: 120px 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.form-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('img/formregisterbg.jpg.') center center / cover no-repeat;
+  z-index: 0;
+}
+
+.form-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 40, 45, 0.85);
+  z-index: 1;
+}
+
+.form-container-relative {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 850px;
+}
+
+.centered-form-wrapper {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 50px 60px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  border-top: 5px solid #e85d04;
+}
+
+.form-header-text {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.form-header-text h2 {
+  font-size: 2.2rem;
+  color: #333;
+  margin: 0 0 15px 0;
+}
+
+.form-header-text p {
+  color: #666;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.std-form-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.std-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.std-group.full-width {
+  width: 100%;
+}
+
+.std-group label {
+  font-size: 0.9rem;
+  color: #444;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.std-group input,
+.std-group textarea {
+  padding: 14px 18px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #333;
+  background-color: #fafbfc;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  font-family: Arial, sans-serif;
+}
+
+.std-group input:focus,
+.std-group textarea:focus {
+  outline: none;
+  border-color: #e85d04;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(232, 93, 4, 0.1);
+}
+
+.std-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.std-submit-btn {
+  width: 100%;
+  background-color: #e85d04;
+  color: #ffffff;
+  border: none;
+  padding: 16px;
+  border-radius: 8px;
+  font-size: 1.15rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-top: 15px;
+}
+
+.std-submit-btn:hover {
+  background-color: #d15303;
+  transform: translateY(-2px);
+}
+
+.std-success-msg {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  padding: 16px 20px;
+  border-radius: 8px;
+  border-left: 5px solid #2e7d32;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.std-success-msg .success-icon {
+  color: #4caf50;
+  display: flex;
+  align-items: center;
+}
+
+/* ---- FOOTER ---- */
+.footer {
+  margin-top: 80px;
+  background-color: #f5e9dc;
+  padding: 40px 20px;
+  color: #333;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  flex: 1 1 220px;
+  margin: 20px;
+}
+
+.footer h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #222;
+}
+
+.footer p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer ul li {
+  margin-bottom: 10px;
+}
+
+.footer ul li a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.footer ul li a:hover {
+  color: #e67e22;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons a svg {
+  width: 24px;
+  height: 24px;
+  fill: #333;
+  transition: fill 0.3s;
+}
+
+.social-icons a:hover svg {
+  fill: #e67e22;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 30px 0;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 1024px) {
+  .benefits-img-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .reg-hero-content {
+    flex-direction: column;
+  }
+
+  .reg-hero {
+    padding-top: 120px;
+  }
+
+  .band-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .orange-line.short-line {
+    margin: 0 auto 20px auto;
+  }
+
+  .step-row,
+  .step-row.reverse {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .benefits-img-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .centered-form-wrapper {
+    padding: 30px 20px;
+  }
+
+  .std-form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .std-group {
+    margin-bottom: 20px;
+  }
+
+  .footer-section {
+    flex: 1 1 100%;
+    margin: 10px 0;
+  }
+
+  .social-icons {
+    justify-content: flex-start;
+  }
+}
+</style>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="logo">
+            <!-- Paw SVG icon replacing emoji -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#e85d04">
+                <circle cx="4.5" cy="9.5" r="2.5"/>
+                <circle cx="9" cy="5.5" r="2.5"/>
+                <circle cx="15" cy="5.5" r="2.5"/>
+                <circle cx="19.5" cy="9.5" r="2.5"/>
+                <path d="M17.34 14.86c-.87-1.02-1.6-1.89-2.48-2.91-.46-.54-1.05-1.08-1.75-1.32-.11-.04-.22-.07-.33-.09-.25-.04-.52-.04-.78-.04s-.53 0-.79.05c-.11.02-.22.05-.33.09-.7.24-1.28.78-1.75 1.32-.87 1.02-1.6 1.89-2.48 2.91-1.31 1.31-2.92 2.76-2.62 4.79.29 1.02 1.02 2.03 2.33 2.32.73.15 3.06-.44 5.52-.44h.02c2.45 0 4.79.58 5.52.44 1.31-.29 2.04-1.3 2.33-2.32.31-2.04-1.3-3.49-2.61-4.8z"/>
+            </svg>
+            The Wagging Tail
+        </div>
+
+        <input type="checkbox" id="menu-toggle">
+
+        <!-- Hamburger SVG icon replacing emoji -->
+        <label for="menu-toggle" class="hamburger">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round">
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <line x1="3" y1="12" x2="21" y2="12"/>
+                <line x1="3" y1="18" x2="21" y2="18"/>
+            </svg>
+        </label>
+
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about_us.html">About Us</a></li>
+                <li><a href="adopt.html">Adopt</a></li>
+                <li><a href="donate.html">Donate</a></li>
+                <li><a href="volunteer.html">Volunteer</a></li>
+                <li><a href="medical.html">Rescue &amp; medical help</a></li>
+                <li><a href="shelter.html">Shelter</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-content">
+
+        <!-- 1. HERO SECTION -->
+        <section class="reg-hero">
+            <img src="img/register2.jpg.jpeg" alt="Hero background" class="reg-hero-bg">
+            <div class="reg-hero-overlay"></div>
+
+            <div class="reg-hero-content">
+                <div class="reg-hero-left">
+                    <h1>Register Your Shelter Today</h1>
+                    <div class="orange-line"></div>
+                    <p class="hero-desc">Join 50+ shelters making a difference. Let's work together to connect every dog with their forever home.</p>
+                    <a href="#register-form" class="cta-button">Start Registration</a>
+
+                    <div class="hero-stats">
+                        <span><strong>50+</strong> Shelters</span> |
+                        <span><strong>2500+</strong> Dogs</span> |
+                        <span><strong>1800+</strong> Adoptions</span>
+                    </div>
+                </div>
+
+                <div class="reg-hero-right">
+                    <div class="info-card border-orange">
+                        <h3>Verified Platform</h3>
+                        <p>We ensure every shelter is verified for trust. Adopters know they are talking to real people.</p>
+                    </div>
+                    <div class="info-card border-teal">
+                        <h3>Forever Free to Use</h3>
+                        <p>No hidden fees. Free profiles for all shelters and open access to volunteers.</p>
+                    </div>
+                    <div class="info-card border-orange">
+                        <h3>10% Donation Reward</h3>
+                        <p>When users donate money through our platform to any shelter — we keep 90% and give 10% of the donation as a bonus reward to shelters who are most active on our platform.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. PROCESS BAND SECTION -->
+        <section class="process-band">
+            <div class="band-content">
+                <div class="band-text">
+                    <h2>How the Process Works</h2>
+                    <div class="orange-line short-line"></div>
+                    <p>Follow a simple 4-step journey to get your shelter online and start receiving help.</p>
+                </div>
+                <div class="band-icons">
+                    <a href="#step-1" class="icon-box">
+                        <span class="svg-icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        </span>
+                        <span class="icon-label">Profile</span>
+                    </a>
+                    <a href="#step-2" class="icon-box">
+                        <span class="svg-icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle><line x1="21.17" y1="8" x2="12" y2="8"></line><line x1="3.95" y1="6.06" x2="8.54" y2="14"></line><line x1="10.88" y1="21.94" x2="15.46" y2="14"></line></svg>
+                        </span>
+                        <span class="icon-label">Needs</span>
+                    </a>
+                    <a href="#step-3" class="icon-box">
+                        <span class="svg-icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </span>
+                        <span class="icon-label">Connect</span>
+                    </a>
+                    <a href="#step-4" class="icon-box">
+                        <span class="svg-icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                        </span>
+                        <span class="icon-label">Fund</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. ZIGZAG STEPS SECTION -->
+        <section class="steps-section">
+            <div class="steps-container">
+
+                <div class="step-row" id="step-1">
+                    <div class="step-text">
+                        <div class="bg-number">01</div>
+                        <div class="step-details">
+                            <span class="step-topic">GET STARTED</span>
+                            <h2>Create Your Profile</h2>
+                            <p>Sign up easily by providing basic details about your shelter, location, and the incredible work you do. A verified profile adds trust and helps adopters find you immediately.</p>
+                            <a href="#register-form" class="text-link">Register Now &#x2192;</a>
+                        </div>
+                    </div>
+                    <div class="step-img">
+                        <img src="img/register5.jpg.jpeg" alt="Shelter Profile">
+                    </div>
+                </div>
+
+                <div class="step-row reverse" id="step-2">
+                    <div class="step-text">
+                        <div class="bg-number">02</div>
+                        <div class="step-details">
+                            <span class="step-topic">SHELTER ESSENTIALS</span>
+                            <h2>Share Your Needs</h2>
+                            <p>Tell us about your capacity, the types of dogs you rescue, and your most urgent requirements. Since we handle matching manually, this helps us find the exact right supporters for you.</p>
+                            <a href="#register-form" class="text-link">Register Now &#x2192;</a>
+                        </div>
+                    </div>
+                    <div class="step-img">
+                        <img src="img/register6.jpg.jpeg" alt="Happy Dogs">
+                    </div>
+                </div>
+
+                <div class="step-row" id="step-3">
+                    <div class="step-text">
+                        <div class="bg-number">03</div>
+                        <div class="step-details">
+                            <span class="step-topic">THE CONNECTION</span>
+                            <h2>Receive Verified Matches</h2>
+                            <p>We handle adoption inquiries and adopter screening on our end. We'll introduce you directly to serious, vetted families who are ready to give your dogs a forever home.</p>
+                            <a href="#register-form" class="text-link">Register Now &#x2192;</a>
+                        </div>
+                    </div>
+                    <div class="step-img">
+                        <img src="img/rgister3.jpg.jpeg" alt="Connecting Adopters">
+                    </div>
+                </div>
+
+                <div class="step-row reverse" id="step-4">
+                    <div class="step-text">
+                        <div class="bg-number">04</div>
+                        <div class="step-details">
+                            <span class="step-topic">COMMUNITY SUPPORT</span>
+                            <h2>Receive Donations &amp; Rewards</h2>
+                            <p>Donations made through our platform go directly to your shelter. Plus our most active shelters receive an additional 10% bonus from total platform donations every month.</p>
+                            <a href="#register-form" class="text-link">Register Now &#x2192;</a>
+                        </div>
+                    </div>
+                    <div class="step-img">
+                        <img src="img/donation.jpg.jpeg" alt="Receiving Donations">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. BENEFITS SECTION -->
+        <section class="benefits-standalone">
+            <div class="container text-center">
+                <h2>Everything You Need To Grow</h2>
+                <div class="orange-line center-line"></div>
+                <p class="standalone-desc">Register today and unlock tools designed to make shelter management and adoptions easier.</p>
+
+                <div class="benefits-img-grid">
+
+                    <div class="img-card">
+                        <img src="img/registrbonus.jpg.jpeg" alt="Bonus Reward">
+                        <div class="img-card-body border-orange">
+                            <h4>10% Bonus Reward</h4>
+                            <p>Most active shelters receive 10% of total platform donations every month as a performance bonus.</p>
+                        </div>
+                    </div>
+
+                    <div class="img-card">
+                        <img src="img/inqueyregister.jpg.jpeg" alt="Volunteer Support">
+                        <div class="img-card-body border-teal">
+                            <h4>Personalized Matching</h4>
+                            <p>We manually handle queries to connect you with serious, verified adopters looking to give forever homes.</p>
+                        </div>
+                    </div>
+
+                    <div class="img-card">
+                        <img src="img/volunteer.jpg.jpeg" alt="Community">
+                        <div class="img-card-body border-orange">
+                            <h4>Volunteer Connection</h4>
+                            <p>Get instant support from passionate volunteers to help with rescues, care, and daily shelter operations.</p>
+                        </div>
+                    </div>
+
+                    <div class="img-card">
+                        <img src="img/registerspotlight.png" alt="Spotlight">
+                        <div class="img-card-body border-teal">
+                            <h4>Monthly Spotlight</h4>
+                            <p>Get featured across our network and social media platforms to drastically increase your shelter's visibility.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. REGISTRATION FORM SECTION -->
+        <section class="standard-form-section" id="register-form">
+            <div class="form-bg"></div>
+            <div class="form-overlay"></div>
+
+            <div class="container form-container-relative">
+                <div class="centered-form-wrapper">
+                    <div class="form-header-text">
+                        <h2>Register Your Shelter</h2>
+                        <div class="orange-line center-line"></div>
+                        <p>Welcome! Give us the important basics about your shelter so we can start matching you with adopters.</p>
+                    </div>
+
+                    <form id="std-shelterForm" class="std-form">
+                        <div class="std-form-row">
+                            <div class="std-group full-width">
+                                <label>Shelter Name *</label>
+                                <input type="text" placeholder="e.g. Happy Paws Foundation" required>
+                            </div>
+                        </div>
+
+                        <div class="std-form-row">
+                            <div class="std-group">
+                                <label>Email Address *</label>
+                                <input type="email" placeholder="shelter@email.com" required>
+                            </div>
+                            <div class="std-group">
+                                <label>Phone Number *</label>
+                                <input type="tel" placeholder="+91 98765 43210" required>
+                            </div>
+                        </div>
+
+                        <div class="std-form-row">
+                            <div class="std-group">
+                                <label>City *</label>
+                                <input type="text" placeholder="Mumbai" required>
+                            </div>
+                            <div class="std-group">
+                                <label>State *</label>
+                                <input type="text" placeholder="Maharashtra" required>
+                            </div>
+                        </div>
+
+                        <div class="std-form-row">
+                            <div class="std-group full-width">
+                                <label>Current Number of Dogs Rescued *</label>
+                                <input type="number" placeholder="50" required>
+                            </div>
+                        </div>
+
+                        <div class="std-form-row">
+                            <div class="std-group full-width">
+                                <label>About Your Mission *</label>
+                                <textarea placeholder="Tell us briefly about your history and needs..." required></textarea>
+                            </div>
+                        </div>
+
+                        <div id="std-success" class="std-success-msg" style="display: none;">
+                            <span class="success-icon">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                            </span>
+                            Registration successful! Our team will reach you soon.
+                        </div>
+
+                        <button type="submit" id="std-submitBtn" class="std-submit-btn">Submit Registration</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-section">
+                <h3>The Wagging Tail</h3>
+                <p>Rescuing, feeding, treating, and finding homes for stray dogs.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="adopt.html">Adopt a Dog</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: hello@wagging-tail.org</p>
+                <p>Phone: +91 99207 77536</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <!-- Facebook -->
+                    <a href="https://www.facebook.com/TheAsherHouse" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.12 8.44 9.88v-6.99H8.08v-2.89h2.36V9.41c0-2.33 1.39-3.62 3.52-3.62 1.02 0 2.09.18 2.09.18v2.3h-1.18c-1.17 0-1.53.73-1.53 1.48v1.77h2.61l-.42 2.89h-2.19v6.99C18.34 21.12 22 16.99 22 12z"/>
+                        </svg>
+                    </a>
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/wsdindia/">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7c-1.65 0-3-1.35-3-3V7c0-1.65 1.35-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-2.75a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z"/>
+                        </svg>
+                    </a>
+                    <!-- Twitter -->
+                    <a href="https://twitter.com/DogsTrust">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.3 4.3 0 001.88-2.37 8.59 8.59 0 01-2.72 1.04 4.28 4.28 0 00-7.3 3.9A12.14 12.14 0 013 4.79a4.28 4.28 0 001.32 5.71 4.25 4.25 0 01-1.94-.54v.05a4.28 4.28 0 003.44 4.19 4.3 4.3 0 01-1.93.07 4.28 4.28 0 004 2.97A8.6 8.6 0 012 19.54a12.14 12.14 0 006.56 1.92c7.88 0 12.2-6.53 12.2-12.2 0-.19 0-.39-.01-.58A8.72 8.72 0 0022.46 6z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <hr>
+        <div class="footer-bottom">
+            &copy; 2026 The Wagging Tail. All rights reserved.
+        </div>
+    </footer>
+    <script>// Get form and success message elements
+const form = document.getElementById("std-shelterForm");
+const successMsg = document.getElementById("std-success");
+
+form.addEventListener("submit", function(e) {
+    e.preventDefault(); // stop page reload
+
+    // Show success message
+    successMsg.style.display = "flex";
+
+    // Optional: reset form fields
+    form.reset();
+});</script>
+
+
+</body>
+</html>

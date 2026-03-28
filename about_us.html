@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - The Wagging Tail</title>
+    <link rel="stylesheet" href="about_us.css">
+</head>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* ---- NAVBAR ---- */
+:root{
+    --primary-color:#e85d04;
+    --secondary-color:#ff6a00;
+    font-size:16px;
+}
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color:rgba(245,241,236,0.7);
+    backdrop-filter: blur(10px);
+    z-index: 1;
+    height: 80px;
+    border-bottom: 1px solid rgb(245, 243, 243);
+}
+::selection{
+    color: var(--primary-color);
+}
+.logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    opacity: 1;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+nav ul li a{
+    color: black;
+    text-decoration: none;
+}
+nav ul li a:hover{
+    color: var(--primary-color);
+}
+nav ul li {
+    cursor: pointer;
+    color: #333;
+    font-size: 0.94rem;
+    opacity: 1;
+}
+nav ul li a{
+    color: black;
+    text-decoration: none;
+}
+nav ul li a:hover{
+    color: var(--primary-color);
+}
+#menu-toggle {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+.nav{
+    display: flex;
+}
+/* MOBILE */
+@media (max-width: 768px) {
+
+    .hamburger {
+        display: block;
+    }
+
+    .nav {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: white;
+        display: none;
+        flex-direction: column;
+    }
+
+    .nav ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .nav ul li {
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+        text-align: center;
+    }
+
+    #menu-toggle:checked ~ .nav {
+        display: flex;
+    }
+}
+
+/* ---- PAGE CONTENT ---- */
+.page-content {
+    margin-top: 80px;
+}
+
+/* ---- SECTION 1 - HERO ---- */
+.hero {
+    position: relative;
+    height: 100vh;
+}
+
+.hero-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    /* slightly less dark — matches adopt page hero overlay (rgba 0,0,0,0.1) but about needs more for text */
+    opacity: 0.8;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.45);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+}
+
+.hero-paw {
+    font-size: 5rem;
+    opacity: 0.25;
+    margin-bottom: 15px;
+}
+
+.hero-overlay h1 {
+    color: #ffffff;
+    font-size: 2.8rem;
+    margin-bottom: 12px;
+}
+
+.hero-line {
+    width: 60px;
+    height: 3px;
+    background-color: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+}
+
+.hero-overlay p {
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.hero-pills {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* pill uses adopt page orange */
+.hero-pill {
+    background-color: #e85d04;
+    color: #ffffff;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* ---- SECTION 2 - OUR STORY ---- */
+/* warm cream background — same as adopt page body */
+.story-section {
+    background-color: #f5e9dc;
+}
+
+.story-inner {
+    display: flex;
+    gap: 40px;
+    padding: 60px 40px;
+    align-items: center;
+}
+
+.story-text {
+    flex: 1;
+}
+
+.est-badge {
+    background-color: #e85d04;
+    color: #ffffff;
+    padding: 5px 15px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.story-text h2 {
+    font-size: 2rem;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.orange-line {
+    width: 60px;
+    height: 3px;
+    background-color: #e85d04;
+    margin-bottom: 20px;
+}
+
+.center-line {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+}
+
+.story-text p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.story-stats {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+/* stat pills match adopt page card style */
+.stat-pill {
+    background-color: #ffffff;
+    color: #e85d04;
+    border: 1px solid #e85d04;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 0.875rem;
+    font-weight: bold;
+}
+
+.story-img-box {
+    flex: 1;
+    height: 420px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.story-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s;
+}
+
+.story-img-box:hover img {
+    transform: scale(1.05);
+}
+
+/* photo strip */
+.photo-strip {
+    display: flex;
+}
+
+.strip-item {
+    flex: 1;
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.strip-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s;
+}
+
+.strip-item:hover img {
+    transform: scale(1.05);
+}
+
+.strip-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    text-align: center;
+    padding: 8px;
+    font-size: 0.95rem;
+    font-weight: bold;
+}
+
+/* ---- SECTION 3 - WHAT WE DO ---- */
+/* white — matches adopt page card background */
+.whatwedo-section {
+    background-color: #ffffff;
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 1.9rem;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.whatwedo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* adopt page card style */
+.whatwedo-card {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    transition: transform 0.3s;
+}
+
+.whatwedo-card:hover {
+    transform: scale(1.03);
+}
+
+.card-top {
+    padding: 25px;
+    text-align: center;
+}
+
+.orange-top {
+    background-color: #e85d04;
+}
+
+/* second color from adopt page — use a warm amber instead of teal */
+.teal-top {
+    background-color: #e67e22;
+}
+
+.card-emoji {
+    font-size: 2.5rem;
+}
+
+.card-bottom {
+    padding: 20px 25px;
+    text-align: left;
+}
+
+.card-bottom h3 {
+    font-size: 1.1rem;
+    color: #222;
+    margin-bottom: 12px;
+}
+
+.card-bottom ul {
+    list-style: none;
+}
+
+.card-bottom ul li {
+    font-size: 0.875rem;
+    color: #555;
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* ---- SECTION 4 - WHY CHOOSE US ---- */
+.whyus-section {
+    background-color: #f5e9dc;
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.whyus-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.whyus-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid #e85d04;
+    transition: transform 0.3s;
+    text-align: left;
+}
+
+.whyus-card:hover {
+    transform: translateY(-4px);
+}
+
+.whyus-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.whyus-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+/* use warm tones matching adopt page */
+.orange-bg {
+    background-color: #fde8d8;
+    color: #e85d04;
+}
+
+.teal-bg {
+    background-color: #fdf0e0;
+    color: #e67e22;
+}
+
+.whyus-text h3 {
+    font-size: 0.95rem;
+    color: #222;
+    margin-bottom: 5px;
+}
+
+.whyus-text p {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* ---- SECTION 5 - VOLUNTEER ---- */
+.volunteer-section {
+    position: relative;
+    min-height: 550px;
+}
+
+.volunteer-bg-img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    display: block;
+    /* lighter opacity like adopt page hero */
+    filter: brightness(0.6);
+}
+
+.volunteer-overlay {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 60px 40px;
+    text-align: center;
+    min-height: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.volunteer-overlay h2 {
+    color: #ffffff;
+    font-size: 1.9rem;
+    margin-bottom: 10px;
+}
+
+.white-line {
+    width: 60px;
+    height: 3px;
+    background-color: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+}
+
+.volunteer-desc {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1rem;
+    margin-bottom: 35px;
+}
+
+.volunteer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    width: 100%;
+}
+
+/* adopt page card style adapted for dark bg */
+.volunteer-card {
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 15px;
+    padding: 25px 15px;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.volunteer-card:hover {
+    background-color: rgba(255, 255, 255, 0.22);
+    transform: translateY(-5px);
+}
+
+.vol-emoji {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+}
+
+.volunteer-card h3 {
+    color: #ffffff;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+
+.volunteer-card p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+/* ---- SECTION 6 - IMPACT ---- */
+/* warm cream — adopt page tone */
+.impact-section {
+    background-color: #f5e9dc;
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.impact-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 30px 15px;
+    border-radius: 15px;
+    border-bottom: 3px solid #e85d04;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s;
+}
+
+.impact-card:hover {
+    transform: translateY(-5px);
+}
+
+.impact-icon {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.impact-icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.orange-number {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #e85d04;
+    margin-bottom: 8px;
+}
+
+/* second accent — warm amber instead of teal */
+.teal-number {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #e67e22;
+    margin-bottom: 8px;
+}
+
+.impact-card p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* ---- SECTION 7 - QUOTE ---- */
+.quote-section {
+    position: relative;
+    height: 320px;
+}
+
+.quote-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.6);
+}
+
+.quote-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    text-align: center;
+}
+
+.quote-paw {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.quote-overlay blockquote {
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-style: italic;
+    max-width: 600px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.quote-overlay p {
+    color: #e85d04;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* ---- SECTION 8 - CTA ---- */
+.cta-section {
+    background-color: #e85d04;
+    padding: 60px 40px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.cta-left {
+    flex: 1;
+}
+
+.cta-left h2 {
+    color: #ffffff;
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.cta-left p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    max-width: 500px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.cta-btn-primary {
+    padding: 14px 30px;
+    background-color: #ffffff;
+    color: #e85d04;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.cta-btn-primary:hover {
+    background-color: #f5e9dc;
+    transform: translateY(-3px);
+}
+
+.cta-btn-secondary {
+    padding: 14px 30px;
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.cta-btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-3px);
+}
+
+.cta-right {
+    flex: 1;
+}
+
+/* white card matches adopt page card style */
+.cta-benefits {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cta-benefits h3 {
+    color: #e85d04;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.cta-benefits p {
+    color: #333;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+/* ---- FOOTER ---- */
+ 
+.footer {
+    margin-top: 80px;
+    background-color: #f5e9dc;
+    padding: 40px 20px;
+    color: #333;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer-section {
+    flex: 1 1 220px;
+    margin: 20px;
+  }
+
+  .footer h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #222;
+  }
+
+  .footer p {
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer ul li {
+    margin-bottom: 10px;
+  }
+
+  .footer ul li a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+  }
+
+  .footer ul li a:hover {
+    color: #e67e22;
+  }
+
+
+  .social-icons {
+    display: flex;
+    gap: 15px;
+  }
+
+  .social-icons a svg {
+    width: 24px;
+    height: 24px;
+    fill: #333;
+    transition: fill 0.3s;
+  }
+
+  .social-icons a:hover svg {
+    fill: #e67e22;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 30px 0;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+  }
+
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .footer-section {
+      flex: 1 1 100%;
+      margin: 10px 0;
+    }
+
+    .social-icons {
+      justify-content: flex-start;
+    }
+  }  
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 900px) {
+    .whatwedo-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .whyus-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .volunteer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .impact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .story-inner {
+        flex-direction: column;
+    }
+    .story-img-box {
+        width: 100%;
+    }
+    .cta-section {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 500px) {
+    .whatwedo-grid {
+        grid-template-columns: 1fr;
+    }
+    .whyus-grid {
+        grid-template-columns: 1fr;
+    }
+    .volunteer-grid {
+        grid-template-columns: 1fr;
+    }
+    .photo-strip {
+        flex-direction: column;
+    }
+    .hero-overlay h1 {
+        font-size: 1.8rem;
+    }
+    nav ul {
+        display: none;
+    }
+}
+</style>
+<body>
+
+    <!-- NAVBAR -->
+   <header class="navbar">
+    <div class="logo">🐾 The Wagging Tail</div>
+    <input type="checkbox" id="menu-toggle">
+
+    <label for="menu-toggle" class="hamburger">☰</label>
+    <nav class="nav">
+        <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about_us.html">About Us</a></li>
+              <li><a href="adopt.html">Adopt</a></li>
+              <li><a href="donate.html">Donate</a></li>
+              <li><a href="volunteer.html">Volunteer</a></li>
+              <li><a href="medical.html">Rescue & medical help</a></li>
+              <li><a href="shelter.html">Shelter</a></li>
+              <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+    <div class="page-content">
+
+        <!-- SECTION 1 - HERO -->
+        <section class="hero">
+    <img src="img/hero img for about us.jpg.jpeg" alt="Stray puppies" class="hero-bg-img">
+
+    <div class="hero-overlay">
+
+        <!-- PAW ICON -->
+        <div class="hero-paw">
+            <svg width="50" height="50" viewBox="0 0 24 24" fill="#e85d04">
+                <path d="M12 12c2.7 0 5 2.3 5 5v1H7v-1c0-2.7 2.3-5 5-5zm-5-2c1.1 0 2-.9 2-2S8.1 6 7 6s-2 .9-2 2 .9 2 2 2zm10 0c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-7-3c1.1 0 2-.9 2-2S11.1 3 10 3 8 .9 8 2s.9 2 2 2zm4 0c1.1 0 2-.9 2-2S15.1 3 14 3s-2 .9-2 2 .9 2 2 2z"/>
+            </svg>
+        </div>
+
+        <h1>About The Wagging Tail</h1>
+        <div class="hero-line"></div>
+        <p>Connecting dog shelters to the people who care</p>
+
+        <div class="hero-pills">
+
+            <!-- SHELTER ICON -->
+            <span class="hero-pill">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#ffffff">
+                    <path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3l9-8z"/>
+                </svg>
+                50+ Registered Shelters
+            </span>
+
+            <!-- HEART ICON -->
+            <span class="hero-pill">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#ff4d6d">
+                    <path d="M12 21s-6-4.35-9-7.5C-1 9.5 2 4 6.5 4c2 0 3.5 1 4.5 2.5C12 5 13.5 4 15.5 4 20 4 23 9.5 21 13.5 18 16.65 12 21 12 21z"/>
+                </svg>
+                1,800+ Successful Adoptions
+            </span>
+
+        </div>
+
+    </div>
+</section>
+
+        <!-- SECTION 2 - OUR STORY -->
+        <section class="story-section">
+            <div class="story-inner">
+
+                <!-- LEFT - text -->
+                <div class="story-text">
+    <span class="est-badge">Est. 2018</span>
+    <h2>Our Story</h2>
+    <div class="orange-line"></div>
+
+    <p>In 2018, three college friends noticed a big problem. Dozens of dog shelters across India were doing incredible work — but nobody knew about them. People who wanted to adopt had no idea where to go. Volunteers had no idea who needed help. Donors had no idea who to trust. The connection was missing.</p>
+
+    <p>So they built The Wagging Tail — one platform where every verified shelter, every available dog, and every person who wants to help can find each other instantly. We don't rescue dogs. The shelters do. We just make sure their work reaches the world.</p>
+
+    <div class="story-stats">
+
+        <span class="stat-pill">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#e85d04">
+                <path d="M12 12c2.7 0 5 2.3 5 5v1H7v-1c0-2.7 2.3-5 5-5zm-5-2c1.1 0 2-.9 2-2S8.1 6 7 6s-2 .9-2 2 .9 2 2 2zm10 0c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-7-3c1.1 0 2-.9 2-2S11.1 3 10 3 8 .9 8 2s.9 2 2 2zm4 0c1.1 0 2-.9 2-2S15.1 3 14 3s-2 .9-2 2 .9 2 2 2z"/>
+            </svg>
+            50+ Shelters Connected
+        </span>
+
+        <span class="stat-pill">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#e63946">
+                <path d="M12 21s-6-4.35-9-7.5C-1 9.5 2 4 6.5 4c2 0 3.5 1 4.5 2.5C12 5 13.5 4 15.5 4 20 4 23 9.5 21 13.5 18 16.65 12 21 12 21z"/>
+            </svg>
+            500+ Volunteers
+        </span>
+
+    </div>
+</div>
+
+                <!-- RIGHT - image -->
+                <div class="story-img-box">
+                    <img src="img/rescue about us.jpg.jpeg" alt="Girl caring for puppy">
+                </div>
+
+            </div>
+
+            <!-- PHOTO STRIP -->
+            <div class="photo-strip">
+                <div class="strip-item">
+                    <img src="img/care about us.jpg.jpeg" alt="Feeding a dog">
+                    <div class="strip-caption">Daily Feeding</div>
+                </div>
+                <div class="strip-item">
+                    <img src="img/expand srevice about us.jpg.jpeg" alt="Vet treating dog">
+                    <div class="strip-caption">Medical Care</div>
+                </div>
+                <div class="strip-item">
+                    <img src="img/happy about us.jpg.jpeg" alt="Happy dogs">
+                    <div class="strip-caption">Happy Shelter Dogs</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3 - WHAT WE DO -->
+        <section class="whatwedo-section">
+            <h2 class="section-title">What We Do</h2>
+            <div class="orange-line center-line"></div>
+
+            <div class="whatwedo-grid">
+
+                <div class="whatwedo-card">
+                    <div class="card-top orange-top">
+                        <div class="card-emoji">🐕</div>
+                    </div>
+                    <div class="card-bottom">
+                        <h3>For Adopters</h3>
+                        <ul>
+                            <li>✅ Browse dogs from multiple shelters</li>
+                            <li>✅ Search by city, breed and age</li>
+                            <li>✅ Contact shelter directly</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="whatwedo-card">
+                    <div class="card-top teal-top">
+                        <div class="card-emoji">🏠</div>
+                    </div>
+                    <div class="card-bottom">
+                        <h3>For Shelters</h3>
+                        <ul>
+                            <li>✅ Register and list your dogs</li>
+                            <li>✅ Receive donations directly</li>
+                            <li>✅ Get volunteers and visibility</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="whatwedo-card">
+                    <div class="card-top orange-top">
+                        <div class="card-emoji">🤝</div>
+                    </div>
+                    <div class="card-bottom">
+                        <h3>For Volunteers</h3>
+                        <ul>
+                            <li>✅ Find shelters near you</li>
+                            <li>✅ Choose how you want to help</li>
+                            <li>✅ Make a real difference</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 4 - WHY CHOOSE US -->
+        <section class="whyus-section">
+            <h2 class="section-title">Why Choose Us</h2>
+            <div class="orange-line center-line"></div>
+
+            <div class="whyus-grid">
+
+                <div class="whyus-card">
+                    <div class="whyus-icon orange-bg">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="3"/>
+                            <path d="M16 24l6 6 10-12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="whyus-text">
+                        <h3>Verified Shelters Only</h3>
+                        <p>Every shelter is checked and verified by us before listing</p>
+                    </div>
+                </div>
+
+                <div class="whyus-card">
+                    <div class="whyus-icon teal-bg">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <circle cx="22" cy="22" r="14" stroke="currentColor" stroke-width="3"/>
+                            <line x1="32" y1="32" x2="42" y2="42" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="whyus-text">
+                        <h3>Search Dogs Easily</h3>
+                        <p>Filter by city, breed and age to find your perfect match</p>
+                    </div>
+                </div>
+
+                <div class="whyus-card">
+                    <div class="whyus-icon orange-bg">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <rect x="6" y="8" width="36" height="32" rx="4" stroke="currentColor" stroke-width="3"/>
+                            <line x1="14" y1="18" x2="34" y2="18" stroke="currentColor" stroke-width="3"/>
+                            <line x1="14" y1="26" x2="26" y2="26" stroke="currentColor" stroke-width="3"/>
+                        </svg>
+                    </div>
+                    <div class="whyus-text">
+                        <h3>Full Dog Profiles</h3>
+                        <p>Health history, personality and full story of each dog</p>
+                    </div>
+                </div>
+
+                <div class="whyus-card">
+                    <div class="whyus-icon teal-bg">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <path d="M24 4L28 16H40L30 24L34 36L24 28L14 36L18 24L8 16H20L24 4Z" stroke="currentColor" stroke-width="3"/>
+                        </svg>
+                    </div>
+                    <div class="whyus-text">
+                        <h3>10% Donation Bonus</h3>
+                        <p>We share 10% of all platform donations directly with shelters</p>
+                    </div>
+                </div>
+
+                <div class="whyus-card">
+                    <div class="whyus-icon orange-bg">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <rect x="8" y="8" width="32" height="24" rx="3" stroke="currentColor" stroke-width="3"/>
+                            <path d="M16 40h16M24 32v8" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="whyus-text">
+                        <h3>Direct Contact</h3>
+                        <p>Connect directly with shelters — no middleman involved</p>
+                    </div>
+                </div>
+
+                <div class="whyus-card">
+                    <div class="whyus-icon teal-bg">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="3"/>
+                            <polyline points="24,12 24,24 32,30" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="whyus-text">
+                        <h3>Get Notified</h3>
+                        <p>Get alerts when a dog matching your preference is listed</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 5 - VOLUNTEER -->
+       <section class="volunteer-section">
+    <img src="img/first 100 dogs.jpg.jpeg" alt="Volunteer background" class="volunteer-bg-img">
+
+    <div class="volunteer-overlay">
+        <h2>Volunteer With Us</h2>
+        <div class="white-line"></div>
+        <p class="volunteer-desc">Give your time, make a lifelong difference</p>
+
+        <div class="volunteer-grid">
+
+            <!-- CARD 1 -->
+            <div class="volunteer-card">
+                <div class="vol-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="#ffffff">
+                        <path d="M4 13c0-1.1.9-2 2-2h2v6H6c-1.1 0-2-.9-2-2v-2zm14-2h-2v6h2c1.1 0 2-.9 2-2v-2c0-1.1-.9-2-2-2zM9 11h6v6H9v-6zm3-9c2.2 0 4 1.8 4 4v3H8V6c0-2.2 1.8-4 4-4z"/>
+                    </svg>
+                </div>
+                <h3>Weekend Dog Walker</h3>
+                <p>Visit a nearby shelter and spend time walking and playing with dogs</p>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="volunteer-card">
+                <div class="vol-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="#ffffff">
+                        <path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3l9-8z"/>
+                    </svg>
+                </div>
+                <h3>Foster a Dog</h3>
+                <p>Temporarily home a rescued dog until they find their forever family</p>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="volunteer-card">
+                <div class="vol-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="#ffffff">
+                        <path d="M21 5h-3.2l-1.8-2H8L6.2 5H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h18c1.1 
+                        0 2-.9 2-2V7c0-1.1-.9-2-2-2zM12 17c-2.8 0-5-2.2-5-5s2.2-5 
+                        5-5 5 2.2 5 5-2.2 5-5 5z"/>
+                    </svg>
+                </div>
+                <h3>Photography</h3>
+                <p>Take good photos of shelter dogs to help them get noticed and adopted faster</p>
+            </div>
+
+            <!-- CARD 4 -->
+            <div class="volunteer-card">
+                <div class="vol-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="#ffffff">
+                        <path d="M17 1H7C5.9 1 5 1.9 5 3v18c0 1.1.9 2 2 
+                        2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm-5 
+                        21c-.8 0-1.5-.7-1.5-1.5S11.2 19 12 
+                        19s1.5.7 1.5 1.5S12.8 22 12 
+                        22zm3-4H9V4h6v14z"/>
+                    </svg>
+                </div>
+                <h3>Social Media</h3>
+                <p>Help shelters grow online and reach more people who want to help</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+        <!-- SECTION 6 - IMPACT -->
+        <section class="impact-section">
+            <h2 class="section-title">Our Impact</h2>
+            <div class="orange-line center-line"></div>
+
+            <div class="impact-grid">
+
+                <div class="impact-card">
+                    <div class="impact-icon orange-bg">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <path d="M24 4C16.268 4 10 10.268 10 18c0 10.5 14 26 14 26s14-15.5 14-26c0-7.732-6.268-14-14-14z" stroke="currentColor" stroke-width="3"/>
+                            <circle cx="24" cy="18" r="4" stroke="currentColor" stroke-width="3"/>
+                        </svg>
+                    </div>
+                    <h3 class="impact-number orange-number" data-target="50">50+</h3>
+                    <p>Registered Shelters</p>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-icon teal-bg">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <path d="M24 4C16.268 4 10 10.268 10 18c0 10.5 14 26 14 26s14-15.5 14-26c0-7.732-6.268-14-14-14z" stroke="currentColor" stroke-width="3"/>
+                        </svg>
+                    </div>
+                    <h3 class="impact-number teal-number" data-target="2500">2,500+</h3>
+                    <p>Dogs Listed</p>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-icon orange-bg">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <path d="M24 8C20 8 16 12 16 16C16 20 20 22 24 26C28 22 32 20 32 16C32 12 28 8 24 8Z" stroke="currentColor" stroke-width="3"/>
+                        </svg>
+                    </div>
+                    <h3 class="impact-number orange-number" data-target="1800">1,800+</h3>
+                    <p>Successful Adoptions</p>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-icon teal-bg">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="16" r="8" stroke="currentColor" stroke-width="3"/>
+                            <path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="currentColor" stroke-width="3"/>
+                        </svg>
+                    </div>
+                    <h3 class="impact-number teal-number" data-target="500">500+</h3>
+                    <p>Active Volunteers</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 7 - QUOTE -->
+        <section class="quote-section">
+            <img src="img/shelter about us.jpg.jpeg" alt="Dogs in shelter" class="quote-bg-img">
+            <div class="quote-overlay">
+                <div class="quote-paw">🐾</div>
+                <blockquote>"Every dog deserves a second chance at life"</blockquote>
+                <p>— The Wagging Tail Team</p>
+            </div>
+        </section>
+
+        <!-- SECTION 8 - JOIN AS SHELTER CTA -->
+        <section class="cta-section">
+            <div class="cta-left">
+                <h2>Are You a Shelter?</h2>
+                <div class="white-line"></div>
+                <p>Join our platform and connect with thousands of adopters, volunteers and donors across India. Register today and get 10% of all donations made through our platform.</p>
+                <div class="cta-buttons">
+                    <button class="cta-btn-primary"><a href="shelter.html" style="text-decoration: none; color: black;">Register Your Shelter</a></button>
+                    
+                </div>
+            </div>
+            <div class="cta-right">
+                <div class="cta-benefits">
+    <h3>What You Get</h3>
+
+    <p>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#2a9d8f">
+            <path d="M9 16.2l-3.5-3.5L4 14.2 9 19l12-12-1.5-1.5z"/>
+        </svg>
+        Free shelter profile page
+    </p>
+
+    <p>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#2a9d8f">
+            <path d="M9 16.2l-3.5-3.5L4 14.2 9 19l12-12-1.5-1.5z"/>
+        </svg>
+        List unlimited dogs for adoption
+    </p>
+
+    <p>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#2a9d8f">
+            <path d="M9 16.2l-3.5-3.5L4 14.2 9 19l12-12-1.5-1.5z"/>
+        </svg>
+        Receive donations directly
+    </p>
+
+    <p>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#2a9d8f">
+            <path d="M9 16.2l-3.5-3.5L4 14.2 9 19l12-12-1.5-1.5z"/>
+        </svg>
+        Connect with volunteers nearby
+    </p>
+
+    <p>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#2a9d8f">
+            <path d="M9 16.2l-3.5-3.5L4 14.2 9 19l12-12-1.5-1.5z"/>
+        </svg>
+        10% bonus from platform donations
+    </p>
+</div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- FOOTER -->
+     
+<footer class="footer">
+    <div class="footer-container">
+      <!-- Left Section -->
+      <div class="footer-section">
+        <h3>The Wagging Tail</h3>
+        <p>Rescuing, feeding, treating, and finding homes for stray dogs.</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="adopt.html">Adopt a Dog</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="volunteer.html">Volunteer</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>Email: hello@wagging-tail.org</p>
+        <p>Phone: +91 99207 77536</p>
+      </div>
+
+      <!-- Follow Us -->
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/TheAsherHouse" target="_bl">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.12 8.44 9.88v-6.99H8.08v-2.89h2.36V9.41c0-2.33 1.39-3.62 3.52-3.62 1.02 0 2.09.18 2.09.18v2.3h-1.18c-1.17 0-1.53.73-1.53 1.48v1.77h2.61l-.42 2.89h-2.19v6.99C18.34 21.12 22 16.99 22 12z" />
+            </svg>
+          </a>
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/wsdindia/">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7c-1.65 0-3-1.35-3-3V7c0-1.65 1.35-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-2.75a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z" />
+            </svg>
+          </a>
+          <!-- Twitter -->
+          <a href="https://twitter.com/DogsTrust">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M22.46 6c-.77.35-1.6.58-2.46.69a4.3 4.3 0 001.88-2.37 8.59 8.59 0 01-2.72 1.04 4.28 4.28 0 00-7.3 3.9A12.14 12.14 0 013 4.79a4.28 4.28 0 001.32 5.71 4.25 4.25 0 01-1.94-.54v.05a4.28 4.28 0 003.44 4.19 4.3 4.3 0 01-1.93.07 4.28 4.28 0 004 2.97A8.6 8.6 0 012 19.54a12.14 12.14 0 006.56 1.92c7.88 0 12.2-6.53 12.2-12.2 0-.19 0-.39-.01-.58A8.72 8.72 0 0022.46 6z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Full-width HR before newsletter -->
+    
+    <hr>
+    <div class="footer-bottom">
+      © 2026 The Wagging Tail. All rights reserved. <br>
+    </div>
+  </footer>
+   
+</body>
+</html>
